@@ -17,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-blue-600 to-green-600 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -32,10 +32,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="mb-8">
-              <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+              <h3 className="text-3xl font-bold mb-4 text-white">
                 Fragmentejá
               </h3>
-              <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
+              <p className="text-white/90 leading-relaxed mb-6 max-w-md">
                 Soluções seguras e sustentáveis para fragmentação de documentos,
                 descarte de resíduos e transporte especializado. Líder de mercado com mais de 15 anos de experiência.
               </p>
@@ -45,9 +45,9 @@ const Footer = () => {
                 {certifications.map((cert, index) => {
                   const Icon = cert.icon;
                   return (
-                    <div key={index} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                      <Icon className="w-4 h-4 text-green-400" />
-                      <span className="text-sm text-gray-300">{cert.text}</span>
+                    <div key={index} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
+                      <Icon className="w-4 h-4 text-white" />
+                      <span className="text-sm text-white">{cert.text}</span>
                     </div>
                   );
                 })}
@@ -96,7 +96,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("about")}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
+                  className="text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
                 >
                   Sobre Nós
                 </button>
@@ -104,7 +104,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
+                  className="text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
                 >
                   Serviços
                 </button>
@@ -112,7 +112,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("process")}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
+                  className="text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
                 >
                   Processo
                 </button>
@@ -120,7 +120,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("testimonials")}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
+                  className="text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
                 >
                   Depoimentos
                 </button>
@@ -128,7 +128,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("location")}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
+                  className="text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
                 >
                   Localização
                 </button>
@@ -136,7 +136,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
+                  className="text-white/80 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
                 >
                   Contato
                 </button>
@@ -156,7 +156,7 @@ const Footer = () => {
                   <p className="text-white font-medium">WhatsApp</p>
                   <a 
                     href="https://wa.me/5511970894455" 
-                    className="text-green-400 hover:text-green-300 transition-colors"
+                    className="text-white/80 hover:text-white transition-colors"
                   >
                     (11) 97089-4455
                   </a>
@@ -170,7 +170,7 @@ const Footer = () => {
                   <p className="text-white font-medium">E-mail</p>
                   <a 
                     href="mailto:contato@fragmenteja.com.br"
-                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-white/80 hover:text-white transition-colors"
                   >
                     contato@fragmenteja.com.br
                   </a>
@@ -182,7 +182,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-medium">Endereço</p>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-white/80 text-sm leading-relaxed">
                     Rua George Ohm, 206 Torre B<br />
                     Cidade Monções - SP
                   </p>
@@ -193,14 +193,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 py-8">
+        <div className="border-t border-white/20 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Copyright */}
             <div className="text-center md:text-left">
-              <p className="text-gray-400">
+              <p className="text-white/80">
                 © {new Date().getFullYear()} Fragmentejá. Todos os direitos reservados.
               </p>
-              <p className="text-gray-500 text-sm mt-1">
+              <p className="text-white/60 text-sm mt-1">
                 CNPJ: XX.XXX.XXX/0001-XX | Desenvolvido com ❤️ para o meio ambiente
               </p>
             </div>
@@ -208,7 +208,7 @@ const Footer = () => {
             {/* Back to Top Button */}
             <button
               onClick={scrollToTop}
-              className="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+              className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
               aria-label="Voltar ao topo"
             >
               <ArrowUp className="w-6 h-6" />
@@ -218,8 +218,8 @@ const Footer = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
     </footer>
   );
 };

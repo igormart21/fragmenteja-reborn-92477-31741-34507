@@ -113,13 +113,13 @@ const Contact = () => {
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   const content = (
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105 border border-gray-100">
-                      <div className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                        <Icon className="w-7 h-7 text-white" />
+                    <div className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105 border border-gray-100">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 mb-2">{info.title}</h4>
-                        <p className="text-gray-600 whitespace-pre-line">{info.content}</p>
+                        <h4 className="font-semibold text-gray-900 mb-2 text-base">{info.title}</h4>
+                        <p className="text-gray-600 whitespace-pre-line text-sm">{info.content}</p>
                       </div>
                     </div>
                   );
@@ -171,7 +171,7 @@ const Contact = () => {
                       setFormData({ ...formData, firstName: e.target.value })
                     }
                     required
-                    className="h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                    className="h-11 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -182,7 +182,7 @@ const Contact = () => {
                       setFormData({ ...formData, lastName: e.target.value })
                     }
                     required
-                    className="h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
+                    className="h-11 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -220,7 +220,7 @@ const Contact = () => {
                   }
                   required
                 >
-                  <SelectTrigger className="h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500">
+                  <SelectTrigger className="h-11 border-gray-200 focus:border-blue-500 focus:ring-blue-500">
                     <SelectValue placeholder="Escolher serviço *" />
                   </SelectTrigger>
                   <SelectContent>
@@ -248,9 +248,9 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full h-14 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+                className="w-full h-12 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                 Enviar Solicitação
               </Button>
             </form>

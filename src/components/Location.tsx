@@ -1,6 +1,12 @@
 import { MapPin, Clock, Car, Building, Navigation } from "lucide-react";
 
 const Location = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   const locationInfo = [
     {
       icon: MapPin,
@@ -29,11 +35,11 @@ const Location = () => {
   ];
 
   return (
-    <section id="location" className="py-24 bg-black text-white relative overflow-hidden">
+    <section id="location" className="py-24 bg-gradient-to-b from-gray-50 to-white text-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, gray 1px, transparent 0)`,
           backgroundSize: '50px 50px'
         }} />
       </div>
@@ -41,19 +47,19 @@ const Location = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8 text-white/90 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-full px-6 py-3 mb-8 text-sm font-medium">
             <Navigation className="w-4 h-4" />
             Nossa Localização
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
               Visite Nossa Sede
             </span>
           </h2>
           
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Localizados estrategicamente em <span className="text-white font-semibold">Cidade Monções</span>, 
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Localizados estrategicamente em <span className="text-blue-600 font-semibold">Cidade Monções</span>, 
             oferecemos fácil acesso e infraestrutura completa para atender sua empresa
           </p>
         </div>
@@ -93,20 +99,20 @@ const Location = () => {
 
           {/* Info Cards */}
           <div className="order-1 lg:order-2 space-y-6">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8">
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-lg">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-green-600 rounded-full flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">Endereço Completo</h3>
-                  <p className="text-gray-400">Nossa localização exata</p>
+                  <h3 className="text-xl font-bold text-gray-900">Endereço Completo</h3>
+                  <p className="text-gray-600">Nossa localização exata</p>
                 </div>
               </div>
-              <div className="text-gray-300 leading-relaxed">
+              <div className="text-gray-700 leading-relaxed">
                 Rua George Ohm, 206 Torre B<br />
                 Cidade Monções - São Paulo/SP<br />
-                <span className="text-blue-400">CEP: 04576-080</span>
+                <span className="text-blue-600">CEP: 04576-080</span>
               </div>
             </div>
 
@@ -114,12 +120,12 @@ const Location = () => {
               {locationInfo.slice(1).map((info, index) => {
                 const Icon = info.icon;
                 return (
-                  <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                  <div key={index} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
                     <div className={`w-10 h-10 bg-gradient-to-br ${info.color} rounded-full flex items-center justify-center mb-4`}>
                       <Icon className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-white font-semibold mb-2 text-sm">{info.title}</h4>
-                    <p className="text-gray-400 text-xs leading-relaxed whitespace-pre-line">
+                    <h4 className="text-gray-900 font-semibold mb-2 text-sm">{info.title}</h4>
+                    <p className="text-gray-600 text-xs leading-relaxed whitespace-pre-line">
                       {info.content}
                     </p>
                   </div>
@@ -128,12 +134,15 @@ const Location = () => {
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-r from-blue-600/20 to-green-600/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-              <h4 className="text-white font-bold mb-3">Agende uma Visita</h4>
-              <p className="text-gray-300 text-sm mb-4">
+            <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-gray-200 rounded-2xl p-6 shadow-lg">
+              <h4 className="text-gray-900 font-bold mb-3">Agende uma Visita</h4>
+              <p className="text-gray-600 text-sm mb-4">
                 Venha conhecer nossa estrutura e conversar com nossa equipe especializada
               </p>
-              <button className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button 
+                onClick={scrollToContact}
+                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
                 Agendar Visita
               </button>
             </div>
@@ -142,8 +151,8 @@ const Location = () => {
 
         {/* Bottom Info */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 text-white/90 text-sm">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-gray-100 border border-gray-200 rounded-full px-6 py-3 text-gray-700 text-sm">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span>Facilmente acessível por transporte público e particular</span>
           </div>
         </div>

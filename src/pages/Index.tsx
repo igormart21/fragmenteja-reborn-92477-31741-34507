@@ -7,6 +7,7 @@ import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
 import ImageCarousel from "@/components/ImageCarousel";
+import EnvironmentalCertifications from "@/components/EnvironmentalCertifications";
 import Location from "@/components/Location";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -25,6 +26,7 @@ const Index = () => {
         <Testimonials />
         <Gallery />
         <ImageCarousel />
+        <EnvironmentalCertifications />
         <Location />
         <Contact />
       </main>

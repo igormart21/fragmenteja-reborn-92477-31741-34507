@@ -1,5 +1,5 @@
 import { Shield, Leaf, Truck, FileCheck, Award, Users, Clock, Globe } from "lucide-react";
-import aboutTruck from "@/assets/about-truck.png";
+// import aboutTruck from "@/assets/about-truck.png";
 
 const About = () => {
   const features = [
@@ -93,13 +93,13 @@ const About = () => {
                 const Icon = feature.icon;
                 return (
                   <div key={index} className="group">
-                    <div className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-white rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-100">
-                      <div className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br ${feature.color} rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                        <Icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                    <div className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-100 h-full">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-1 md:mb-2 text-base md:text-lg">{feature.title}</h3>
-                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 mb-2 text-base">{feature.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
@@ -114,7 +114,7 @@ const About = () => {
           <div className="relative">
             <div className="relative z-10">
               <img
-                src={aboutTruck}
+                src="/caminhao-fragmenteja.jpg"
                 alt="Caminhão Fragmentejá"
                 className="w-full h-auto rounded-3xl shadow-2xl"
               />

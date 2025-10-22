@@ -1,6 +1,12 @@
 import { CheckCircle, Truck, Shield, Recycle, FileCheck } from "lucide-react";
 
 const Process = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   const steps = [
     {
       icon: CheckCircle,
@@ -17,8 +23,8 @@ const Process = () => {
     {
       icon: Shield,
       title: "Fragmentação",
-      description: "Destruição segura e certificada de todos os documentos",
-      detail: "Equipamentos industriais de alta tecnologia"
+      description: "Destruição segura e certificada de documentos, com equipamentos industriais de alta tecnologia.",
+      detail: "Processamos cerca de 100 toneladas por dia, garantindo total sigilo e sustentabilidade."
     },
     {
       icon: Recycle,
@@ -116,7 +122,10 @@ const Process = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
+          <div 
+            onClick={scrollToContact}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+          >
             <CheckCircle className="w-5 h-5" />
             Solicite Seu Orçamento
             <div className="w-2 h-2 bg-white rounded-full group-hover:animate-pulse" />

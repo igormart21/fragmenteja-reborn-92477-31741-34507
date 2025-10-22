@@ -50,11 +50,11 @@ const Testimonials = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white text-gray-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 2px 2px, gray 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
       </div>
@@ -62,20 +62,20 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
               Depoimentos
-            </span> <span className="text-white">de Nossos Clientes</span>
+            </span> <span className="text-gray-900">de Nossos Clientes</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Empresas líderes de mercado confiam na nossa excelência
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           {/* Testimonial Card */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 relative">
+          <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 relative shadow-lg">
             {/* Quote Icon */}
-            <Quote className="absolute top-8 left-8 w-12 h-12 text-white/20" />
+            <Quote className="absolute top-8 left-8 w-12 h-12 text-gray-300" />
             
             <div className="flex flex-col md:flex-row items-center gap-8">
               {/* Avatar */}
@@ -93,16 +93,16 @@ const Testimonials = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                <blockquote className="text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
                   "{currentTestimonial.content}"
                 </blockquote>
 
                 {/* Author Info */}
                 <div>
-                  <div className="text-xl font-bold text-white">
+                  <div className="text-xl font-bold text-gray-900">
                     {currentTestimonial.name}
                   </div>
-                  <div className="text-gray-400">
+                  <div className="text-gray-600">
                     {currentTestimonial.position} - {currentTestimonial.company}
                   </div>
                 </div>
@@ -113,9 +113,9 @@ const Testimonials = () => {
             <div className="flex justify-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-all duration-300"
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-6 h-6 text-gray-600" />
               </button>
               
               {/* Dots */}
@@ -126,8 +126,8 @@ const Testimonials = () => {
                     onClick={() => setCurrentIndex(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentIndex 
-                        ? 'bg-white' 
-                        : 'bg-white/30 hover:bg-white/50'
+                        ? 'bg-blue-600' 
+                        : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
                 ))}
@@ -135,9 +135,9 @@ const Testimonials = () => {
 
               <button
                 onClick={nextTestimonial}
-                className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-all duration-300"
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-6 h-6 text-gray-600" />
               </button>
             </div>
           </div>
@@ -146,16 +146,16 @@ const Testimonials = () => {
         {/* Bottom Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">500+</div>
-            <div className="text-gray-400">Empresas Atendidas</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
+            <div className="text-gray-600">Empresas Atendidas</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">99.9%</div>
-            <div className="text-gray-400">Taxa de Satisfação</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">99.9%</div>
+            <div className="text-gray-600">Taxa de Satisfação</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-white mb-2">15+</div>
-            <div className="text-gray-400">Anos de Experiência</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">15+</div>
+            <div className="text-gray-600">Anos de Experiência</div>
           </div>
         </div>
       </div>

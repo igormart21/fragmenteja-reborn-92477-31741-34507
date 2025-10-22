@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Facebook, Instagram, Linkedin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import recyclingSymbol from "/png-transparent-recycling-symbol-others-recycling-logo-waste-removebg-preview.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,12 +92,17 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => scrollToSection("home")}
-              className="hover:opacity-80 transition-opacity group"
+              className="hover:opacity-80 transition-opacity group flex items-center gap-3"
               aria-label="Fragmentejá - Página Inicial"
             >
+              <img 
+                src={recyclingSymbol} 
+                alt="Símbolo de Reciclagem" 
+                className="h-8 md:h-10 w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-12"
+              />
               <img 
                 src={logo} 
                 alt="Fragmentejá - Fragmentação de documentos" 

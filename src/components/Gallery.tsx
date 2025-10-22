@@ -7,17 +7,17 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "/fleet-modern.png",
+      src: "/ChatGPT Image Oct 22, 2025, 02_59_01 PM.png",
       alt: "Frota de veículos especializados",
       title: "Frota Moderna",
-      description: "Veículos equipados com tecnologia de ponta"
+      description: "Contamos com uma frota própria equipada com veículos modernos e revisados, prontos para atender diferentes demandas logísticas com segurança e eficiência."
     },
     {
       id: 2,
       src: "/fragmentation-industrial.png",
       alt: "Processo de fragmentação industrial",
       title: "Fragmentação Industrial",
-      description: "Equipamentos de alta tecnologia para destruição segura"
+      description: "Equipamentos de alta tecnologia para destruição segura. Processamos cerca de 100 toneladas dia"
     },
     {
       id: 3,
