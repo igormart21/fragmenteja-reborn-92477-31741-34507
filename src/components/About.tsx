@@ -6,25 +6,25 @@ const About = () => {
     {
       icon: Leaf,
       title: "Sustentabilidade",
-      description: "Compromisso com o meio ambiente e destino certificado",
+      description: "Reciclagem completa de materiais diversos com destino certificado",
       color: "from-green-500 to-emerald-600"
     },
     {
       icon: Shield,
       title: "Segurança Certificada",
-      description: "Proteção total de dados sensíveis e conformidade LGPD",
+      description: "Processamento seguro de documentos e materiais sensíveis",
       color: "from-blue-500 to-cyan-600"
     },
     {
       icon: Truck,
       title: "Frota Própria",
-      description: "Transporte especializado e rastreável em tempo real",
+      description: "Coleta e transporte especializado com rastreabilidade total",
       color: "from-purple-500 to-violet-600"
     },
     {
       icon: FileCheck,
       title: "Certificação",
-      description: "Emissão de certificados de descarte e destinação final",
+      description: "Emissão de certificados de reciclagem e destinação final",
       color: "from-orange-500 to-red-600"
     },
   ];
@@ -56,19 +56,19 @@ const About = () => {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-gray-900 leading-tight">
-              Líder em <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Fragmentação</span> e Descarte Seguro
+              Líder em <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Reciclagem</span> e Gestão Sustentável
             </h2>
             
             <p className="text-lg sm:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
               Com mais de <span className="font-semibold text-blue-600">15 anos de experiência</span>, a Fragmentejá é referência 
-              em soluções corporativas de fragmentação de documentos e descarte 
-              sustentável, atendendo empresas de todos os portes em todo o Brasil.
+              em soluções corporativas de <span className="font-semibold text-green-600">reciclagem sustentável</span> e gestão de resíduos, 
+              atendendo empresas de todos os portes em todo o Brasil.
             </p>
 
             <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
               Contribuímos efetivamente para a preservação do meio ambiente e para o bem-estar social. 
-              Prestamos serviços voltados para a destruição de documentos sigilosos ou já prescritos, 
-              garantindo segurança total e conformidade legal.
+              Oferecemos serviços completos de <span className="font-semibold text-blue-600">reciclagem de materiais diversos</span>, 
+              processamento de documentos e gestão sustentável de resíduos, garantindo segurança total e conformidade ambiental.
             </p>
 
             {/* Stats */}

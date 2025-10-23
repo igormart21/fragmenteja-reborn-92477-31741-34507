@@ -17,26 +17,26 @@ const Process = () => {
     {
       icon: Truck,
       title: "Coleta",
-      description: "Nossa equipe especializada coleta os documentos no local",
+      description: "Nossa equipe especializada coleta materiais diversos no local",
       detail: "Frota própria com rastreamento em tempo real"
     },
     {
       icon: Shield,
-      title: "Fragmentação",
-      description: "Destruição segura e certificada de documentos, com equipamentos industriais de alta tecnologia.",
+      title: "Processamento",
+      description: "Processamento seguro e especializado de documentos e materiais diversos, com equipamentos industriais de alta tecnologia.",
       detail: "Processamos cerca de 100 toneladas por dia, garantindo total sigilo e sustentabilidade."
     },
     {
       icon: Recycle,
       title: "Reciclagem",
-      description: "Destinação ambientalmente correta dos materiais",
-      detail: "Certificação ISO 14001 e LGPD"
+      description: "Reciclagem completa e destinação ambientalmente correta dos materiais",
+      detail: "Certificação ISO 14001 e licenciamento ambiental"
     },
     {
       icon: FileCheck,
       title: "Certificação",
-      description: "Emissão de certificado de destruição e destinação",
-      detail: "Comprovante legal para auditoria e conformidade"
+      description: "Emissão de certificado de reciclagem e destinação final",
+      detail: "Comprovante legal para auditoria e conformidade ambiental"
     }
   ];
 
@@ -51,10 +51,10 @@ const Process = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Processo <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Inteligente</span>
+            Processo de <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Reciclagem</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Nossa metodologia comprovada garante segurança, eficiência e sustentabilidade em cada etapa
+            Nossa metodologia comprovada garante reciclagem sustentável, segurança e eficiência em cada etapa do processo
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-import { FileX, TruckIcon, Trash2, Award, Shield, Leaf, Clock, Users } from "lucide-react";
+import { FileX, TruckIcon, Trash2, Award, Shield, Leaf, Clock, Users, Shirt, Monitor, Megaphone, CreditCard, Smartphone } from "lucide-react";
 
 const Services = () => {
   const scrollToContact = () => {
@@ -10,31 +10,45 @@ const Services = () => {
   const services = [
     {
       icon: FileX,
-      title: "Destruição de Documentos Sigilosos",
-      description: "Garantimos a destruição segura e completa de documentos confidenciais, protegendo as informações sensíveis da sua empresa contra acessos não autorizados.",
-      features: ["Fragmentação industrial", "Certificação de destruição", "Conformidade LGPD"],
+      title: "Descarte de Documentos",
+      description: "Processamento completo de documentos sigilosos, contratos, relatórios e papéis diversos, garantindo destruição segura e reciclagem sustentável.",
+      features: ["Fragmentação industrial", "Certificação de destruição", "Reciclagem completa"],
       color: "from-red-500 to-pink-600"
     },
     {
-      icon: Trash2,
-      title: "Destruição de Documentos Prescritos",
-      description: "Eliminamos documentos prescritos que ocupam espaço desnecessário, liberando ambiente de trabalho e reduzindo custos de armazenagem.",
-      features: ["Economia de espaço", "Redução de custos", "Organização eficiente"],
-      color: "from-orange-500 to-red-600"
+      icon: Shirt,
+      title: "Descarte de Uniformes e EPIs",
+      description: "Coleta e processamento especializado de uniformes corporativos, equipamentos de proteção individual (EPIs) e roupas de trabalho usadas.",
+      features: ["Processamento especializado", "Destinação sustentável", "Certificação ambiental"],
+      color: "from-blue-500 to-cyan-600"
     },
     {
-      icon: Award,
-      title: "Consultoria em Gestão de Documentos",
-      description: "Orientamos sua empresa na organização, classificação e destinação adequada de documentos, garantindo conformidade legal e segurança da informação.",
-      features: ["Auditoria completa", "Plano de ação", "Treinamento da equipe"],
+      icon: Monitor,
+      title: "Descarte de Equipamentos",
+      description: "Reciclagem segura de equipamentos de escritório, mobiliário corporativo, máquinas e dispositivos diversos com certificação ambiental.",
+      features: ["Desmontagem especializada", "Reciclagem de componentes", "Certificação de descarte"],
       color: "from-purple-500 to-violet-600"
     },
     {
-      icon: TruckIcon,
-      title: "Armazenamento Temporário de Documentos",
-      description: "Oferecemos soluções seguras de armazenamento temporário para documentos que precisam ser mantidos por período determinado antes do descarte.",
-      features: ["Armazenamento seguro", "Controle de acesso", "Rastreabilidade"],
-      color: "from-blue-500 to-cyan-600"
+      icon: Megaphone,
+      title: "Descarte de Material Promocional",
+      description: "Processamento de banners, folhetos, cartazes, displays e materiais promocionais diversos com destinação ambientalmente correta.",
+      features: ["Materiais diversos", "Processamento sustentável", "Certificação de reciclagem"],
+      color: "from-orange-500 to-red-600"
+    },
+    {
+      icon: CreditCard,
+      title: "Descarte de Crachás e Cartões",
+      description: "Destruição segura de crachás de funcionários, cartões de acesso, cartões de crédito corporativos e identificações diversas.",
+      features: ["Destruição segura", "Proteção de dados", "Certificação de destruição"],
+      color: "from-green-500 to-emerald-600"
+    },
+    {
+      icon: Smartphone,
+      title: "Descarte de Eletrônicos",
+      description: "Reciclagem especializada de computadores, celulares, tablets, impressoras e equipamentos eletrônicos diversos com certificação ambiental.",
+      features: ["Reciclagem especializada", "Certificação ambiental", "Destinação sustentável"],
+      color: "from-indigo-500 to-blue-600"
     },
   ];
 
@@ -70,13 +84,13 @@ const Services = () => {
           </h2>
           
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Soluções completas e personalizadas para atender as necessidades da
-            sua empresa com <span className="text-blue-600 font-semibold">segurança, sustentabilidade e eficiência</span>.
+            Soluções completas de <span className="text-blue-600 font-semibold">reciclagem sustentável</span> e gestão de resíduos para empresas de todos os portes, 
+            garantindo <span className="text-green-600 font-semibold">sustentabilidade, segurança e conformidade ambiental</span>.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-20 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20 px-4">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

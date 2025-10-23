@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
+import MediaGallery from "@/components/MediaGallery";
 import ImageCarousel from "@/components/ImageCarousel";
 import EnvironmentalCertifications from "@/components/EnvironmentalCertifications";
 import Location from "@/components/Location";
@@ -25,6 +26,7 @@ const Index = () => {
         <Process />
         <Testimonials />
         <Gallery />
+        <MediaGallery />
         <ImageCarousel />
         <EnvironmentalCertifications />
         <Location />

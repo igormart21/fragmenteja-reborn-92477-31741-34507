@@ -39,18 +39,18 @@ const Hero = () => {
           <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 md:mb-4 leading-[1.1] tracking-normal px-3">
             <span className="block">Descarte</span>
             <span className="block bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-              Inteligente
+              Seguro
             </span>
             <span className="block text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl text-gray-300 font-light">
-              de Documentos
+              de Materiais
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-300 mb-4 md:mb-6 max-w-2xl mx-auto leading-relaxed font-light px-4">
-            Soluções corporativas premium de fragmentação e transporte com 
+            Soluções corporativas completas de <span className="text-white font-medium">reciclagem sustentável</span> e transporte especializado com 
             <span className="text-white font-medium"> certificação ambiental</span>. 
-            Protegemos suas informações e o meio ambiente.
+            Transformamos resíduos em recursos e protegemos o meio ambiente.
           </p>
 
           {/* CTA Buttons */}
@@ -83,21 +83,21 @@ const Hero = () => {
                 <Shield className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
               </div>
               <h3 className="text-white font-semibold mb-1 md:mb-2 text-xs sm:text-sm">100% Seguro</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Proteção total de dados confidenciais</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Processamento seguro de materiais diversos</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-2 md:mb-3 border border-white/20">
                 <Leaf className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
               </div>
               <h3 className="text-white font-semibold mb-1 md:mb-2 text-xs sm:text-sm">Sustentável</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Certificação ambiental completa</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Reciclagem completa e certificada</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-2 md:mb-3 border border-white/20">
                 <Shield className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
               </div>
               <h3 className="text-white font-semibold mb-1 md:mb-2 text-xs sm:text-sm">Conformidade</h3>
-              <p className="text-gray-400 text-xs sm:text-sm">Conformidade total com LGPD</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Licenciamento ambiental completo</p>
             </div>
           </div>
         </div>

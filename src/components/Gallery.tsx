@@ -10,42 +10,42 @@ const Gallery = () => {
       src: "/ChatGPT Image Oct 22, 2025, 02_59_01 PM.png",
       alt: "Frota de veículos especializados",
       title: "Frota Moderna",
-      description: "Contamos com uma frota própria equipada com veículos modernos e revisados, prontos para atender diferentes demandas logísticas com segurança e eficiência."
+      description: "Contamos com uma frota própria equipada com veículos modernos e revisados, prontos para coletar e transportar diversos tipos de materiais recicláveis com segurança e eficiência."
     },
     {
       id: 2,
       src: "/fragmentation-industrial.png",
       alt: "Processo de fragmentação industrial",
-      title: "Fragmentação Industrial",
-      description: "Equipamentos de alta tecnologia para destruição segura. Processamos cerca de 100 toneladas dia"
+      title: "Processamento Industrial",
+      description: "Equipamentos de alta tecnologia para processamento seguro de documentos e materiais diversos. Processamos cerca de 100 toneladas por dia"
     },
     {
       id: 3,
       src: "/data-center.png",
       alt: "Centro de processamento",
       title: "Centro de Processamento",
-      description: "Instalações certificadas e monitoradas 24/7"
+      description: "Instalações certificadas e monitoradas 24/7 para reciclagem de materiais diversos"
     },
     {
       id: 4,
       src: "/qualified-team.png",
       alt: "Equipe especializada",
       title: "Equipe Qualificada",
-      description: "Profissionais treinados e certificados"
+      description: "Profissionais treinados e certificados em reciclagem e gestão de resíduos"
     },
     {
       id: 5,
       src: "/certifications.png",
       alt: "Certificados de qualidade",
       title: "Certificações",
-      description: "Conformidade com padrões internacionais"
+      description: "Conformidade com padrões internacionais de reciclagem e sustentabilidade"
     },
     {
       id: 6,
       src: "/sustainable-recycling.png",
       alt: "Processo de reciclagem",
       title: "Reciclagem Sustentável",
-      description: "Destinação ambientalmente correta"
+      description: "Destinação ambientalmente correta de diversos tipos de materiais recicláveis"
     }
   ];
 
@@ -76,7 +76,7 @@ const Gallery = () => {
             Nossa <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Infraestrutura</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Conheça nossa estrutura moderna e tecnologia de ponta que garante a excelência em nossos serviços
+            Conheça nossa estrutura moderna e tecnologia de ponta que garante a excelência em reciclagem sustentável e gestão de resíduos
           </p>
         </div>
 
