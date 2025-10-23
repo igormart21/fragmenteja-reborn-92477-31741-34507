@@ -18,17 +18,17 @@ const MediaGallery = () => {
       id: 2,
       type: "image", 
       src: "/PHOTO-2025-10-23-09-53-51.jpg",
-      alt: "Manuseio de documentos antigos em ambiente controlado",
-      title: "Manuseio Seguro",
-      description: "Processamento cuidadoso de documentos antigos e arquivos históricos em ambiente controlado e seguro."
+      alt: "Material já processado e fragmentado",
+      title: "Material Processado",
+      description: "Material já processado e fragmentado, pronto para reciclagem sustentável e destinação final."
     },
     {
       id: 3,
       type: "image",
       src: "/PHOTO-2025-10-23-09-57-51.jpg", 
-      alt: "Material fragmentado pronto para reciclagem",
-      title: "Material Fragmentado",
-      description: "Resultado do processo de fragmentação - material triturado e pronto para reciclagem sustentável."
+      alt: "Manuseio seguro de materiais",
+      title: "Manuseio Seguro",
+      description: "Processamento cuidadoso e seguro de materiais diversos em ambiente controlado com equipamentos de proteção."
     },
     {
       id: 4,
