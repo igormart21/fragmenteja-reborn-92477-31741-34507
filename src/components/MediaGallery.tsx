@@ -49,7 +49,7 @@ const MediaGallery = () => {
     {
       id: 6,
       type: "video",
-      src: "/VIDEO-2025-10-23-09-53-53.mp4", 
+      src: "/VIDEO-2025-10-23-15-34-38.mp4", 
       alt: "Vídeo da operação de reciclagem",
       title: "Operação de Reciclagem",
       description: "Demonstração completa do nosso processo de reciclagem sustentável e gestão de resíduos."
