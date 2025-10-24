@@ -16,7 +16,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -30,75 +30,16 @@ const Contact = () => {
     }
 
     // Criar email com os dados do formulário
-    const serviceNames = {
-      'descarte-documentos': 'Descarte de Documentos',
-      'descarte-uniformes-epis': 'Descarte de Uniformes e EPIs',
-      'descarte-equipamentos': 'Descarte de Equipamentos',
-      'descarte-material-promocional': 'Descarte de Material Promocional',
-      'descarte-crachas-cartoes': 'Descarte de Crachás e Cartões',
-      'descarte-eletronicos': 'Descarte de Eletrônicos',
-      'outros': 'Outros'
-    } as const;
+    const subject = `Solicitação de Orçamento - ${formData.service}`;
+    const body = `Nome: ${formData.firstName} ${formData.lastName}%0A%0AEmail: ${formData.email}%0A%0ATelefone: ${formData.phone}%0A%0AServiço: ${formData.service}%0A%0AMensagem: ${formData.message || 'Nenhuma mensagem adicional'}%0A%0A---%0AEnviado através do formulário do site Fragmentejá`;
+    
+    const mailtoLink = `mailto:madaramartins1993@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.open(mailtoLink);
 
-    const serviceDisplayName = (serviceNames as Record<string, string>)[formData.service] || formData.service;
-    const subject = `Solicitação de Orçamento - ${serviceDisplayName}`;
-
-    // Envio via FormSubmit (relay direto para o email destino)
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/contato@fragmenteja.com.br', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          phone: formData.phone,
-          service: serviceDisplayName,
-          message: formData.message || 'Nenhuma mensagem adicional',
-          _subject: subject,
-          _captcha: 'false',
-        }),
-      });
-
-      const data = await response.json().catch(() => null);
-
-      if (response.ok && data && (data.success === 'true' || data.success === true)) {
-        toast({
-          title: 'Mensagem enviada',
-          description: 'Recebemos sua solicitação. Em breve entraremos em contato.',
-        });
-      } else {
-        // Fallback silencioso via mailto se a API falhar
-        const body = `Nome: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTelefone: ${formData.phone}\nServiço: ${serviceDisplayName}\nMensagem: ${formData.message || 'Nenhuma mensagem adicional'}\n\n---\nEnviado através do formulário do site Fragmentejá.`;
-        const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        const tempLink = document.createElement('a');
-        tempLink.href = mailtoLink;
-        tempLink.style.display = 'none';
-        document.body.appendChild(tempLink);
-        tempLink.click();
-        document.body.removeChild(tempLink);
-        toast({
-          title: 'Abrindo cliente de email',
-          description: 'Caso a abertura não ocorra, verifique seu cliente de email padrão.',
-        });
-      }
-    } catch (error) {
-      // Fallback em caso de exceção na requisição
-      const body = `Nome: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTelefone: ${formData.phone}\nServiço: ${serviceDisplayName}\nMensagem: ${formData.message || 'Nenhuma mensagem adicional'}\n\n---\nEnviado através do formulário do site Fragmentejá.`;
-      const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      const tempLink = document.createElement('a');
-      tempLink.href = mailtoLink;
-      tempLink.style.display = 'none';
-      document.body.appendChild(tempLink);
-      tempLink.click();
-      document.body.removeChild(tempLink);
-      toast({
-        title: 'Abrindo cliente de email',
-        description: 'Caso a abertura não ocorra, verifique seu cliente de email padrão.',
-      });
-    }
+    toast({
+      title: "Redirecionando para email",
+      description: "Abra seu cliente de email para enviar a mensagem.",
+    });
 
     // Limpar formulário após um delay
     setTimeout(() => {
@@ -110,7 +51,7 @@ const Contact = () => {
         service: "",
         message: "",
       });
-    }, 1200);
+    }, 2000);
   };
 
   const contactInfo = [
@@ -316,7 +257,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button
+              <Button 
                 type="submit" 
                 size="lg" 
                 className="w-full h-12 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 group"
