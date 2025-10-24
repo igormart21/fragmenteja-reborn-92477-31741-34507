@@ -30,20 +30,37 @@ const Contact = () => {
     }
 
     // Criar email com os dados do formulário
-    const subject = `Solicitação de Orçamento - ${formData.service}`;
-    const body = `
-Nome: ${formData.firstName} ${formData.lastName}
+    const serviceNames = {
+      'descarte-documentos': 'Descarte de Documentos',
+      'descarte-uniformes-epis': 'Descarte de Uniformes e EPIs',
+      'descarte-equipamentos': 'Descarte de Equipamentos',
+      'descarte-material-promocional': 'Descarte de Material Promocional',
+      'descarte-crachas-cartoes': 'Descarte de Crachás e Cartões',
+      'descarte-eletronicos': 'Descarte de Eletrônicos',
+      'outros': 'Outros'
+    };
+
+    const serviceDisplayName = serviceNames[formData.service as keyof typeof serviceNames] || formData.service;
+    
+    const subject = `Solicitação de Orçamento - ${serviceDisplayName}`;
+    const body = `Nome: ${formData.firstName} ${formData.lastName}
 Email: ${formData.email}
 Telefone: ${formData.phone}
-Serviço: ${formData.service}
+Serviço: ${serviceDisplayName}
 Mensagem: ${formData.message || 'Nenhuma mensagem adicional'}
 
 ---
-Esta mensagem foi enviada através do formulário de contato do site Fragmentejá.
-    `;
+Enviado através do formulário do site Fragmentejá.`;
     
     const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoLink);
+    
+    // Tentar abrir o cliente de email
+    try {
+      window.location.href = mailtoLink;
+    } catch (error) {
+      // Fallback: usar window.open
+      window.open(mailtoLink);
+    }
 
     toast({
       title: "Redirecionando para email",
