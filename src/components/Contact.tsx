@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -39,73 +38,65 @@ const Contact = () => {
       'descarte-crachas-cartoes': 'Descarte de Crachás e Cartões',
       'descarte-eletronicos': 'Descarte de Eletrônicos',
       'outros': 'Outros'
-    };
+    } as const;
 
-    const serviceDisplayName = serviceNames[formData.service as keyof typeof serviceNames] || formData.service;
-    
+    const serviceDisplayName = (serviceNames as Record<string, string>)[formData.service] || formData.service;
     const subject = `Solicitação de Orçamento - ${serviceDisplayName}`;
-    const body = `Nome: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Telefone: ${formData.phone}
-Serviço: ${serviceDisplayName}
-Mensagem: ${formData.message || 'Nenhuma mensagem adicional'}
 
----
-Enviado através do formulário do site Fragmentejá.`;
-    
-    // Prefer EmailJS (serverless) if configured; fallback to mailto
-    const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
-    const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-    const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-
-    const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    const useEmailJs = Boolean(EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID);
-
-    if (useEmailJs) {
-      try {
-        emailjs.init(EMAILJS_PUBLIC_KEY!);
-        await emailjs.send(EMAILJS_SERVICE_ID!, EMAILJS_TEMPLATE_ID!, {
-          to_email: "contato@fragmenteja.com.br",
-          subject,
-          message: body,
-          first_name: formData.firstName,
-          last_name: formData.lastName,
+    // Envio via FormSubmit (relay direto para o email destino)
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/contato@fragmenteja.com.br', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           phone: formData.phone,
           service: serviceDisplayName,
-        });
+          message: formData.message || 'Nenhuma mensagem adicional',
+          _subject: subject,
+          _captcha: 'false',
+        }),
+      });
 
+      const data = await response.json().catch(() => null);
+
+      if (response.ok && data && (data.success === 'true' || data.success === true)) {
         toast({
-          title: "Mensagem enviada",
-          description: "Sua solicitação foi enviada com sucesso.",
+          title: 'Mensagem enviada',
+          description: 'Recebemos sua solicitação. Em breve entraremos em contato.',
         });
-      } catch (err) {
-        // Fallback automático para mailto se EmailJS falhar
+      } else {
+        // Fallback silencioso via mailto se a API falhar
+        const body = `Nome: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTelefone: ${formData.phone}\nServiço: ${serviceDisplayName}\nMensagem: ${formData.message || 'Nenhuma mensagem adicional'}\n\n---\nEnviado através do formulário do site Fragmentejá.`;
+        const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         const tempLink = document.createElement('a');
         tempLink.href = mailtoLink;
         tempLink.style.display = 'none';
         document.body.appendChild(tempLink);
         tempLink.click();
         document.body.removeChild(tempLink);
-
         toast({
-          title: "Abrindo cliente de email",
-          description: "Não foi possível enviar automaticamente. Abrindo seu email.",
+          title: 'Abrindo cliente de email',
+          description: 'Caso a abertura não ocorra, verifique seu cliente de email padrão.',
         });
       }
-    } else {
-      // Mailto direto
+    } catch (error) {
+      // Fallback em caso de exceção na requisição
+      const body = `Nome: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTelefone: ${formData.phone}\nServiço: ${serviceDisplayName}\nMensagem: ${formData.message || 'Nenhuma mensagem adicional'}\n\n---\nEnviado através do formulário do site Fragmentejá.`;
+      const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       const tempLink = document.createElement('a');
       tempLink.href = mailtoLink;
       tempLink.style.display = 'none';
       document.body.appendChild(tempLink);
       tempLink.click();
       document.body.removeChild(tempLink);
-
       toast({
-        title: "Abrindo cliente de email",
-        description: "Seu cliente de email deve abrir automaticamente.",
+        title: 'Abrindo cliente de email',
+        description: 'Caso a abertura não ocorra, verifique seu cliente de email padrão.',
       });
     }
 
@@ -119,7 +110,7 @@ Enviado através do formulário do site Fragmentejá.`;
         service: "",
         message: "",
       });
-    }, 2000);
+    }, 1200);
   };
 
   const contactInfo = [
