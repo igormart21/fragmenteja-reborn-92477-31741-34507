@@ -201,7 +201,7 @@ const Footer = () => {
                 © {new Date().getFullYear()} Fragmentejá. Todos os direitos reservados.
               </p>
               <p className="text-white/60 text-sm mt-1">
-                CNPJ: XX.XXX.XXX/0001-XX | Desenvolvido com ❤️ para o meio ambiente
+                CNPJ: 27.987.218/0001-38 | Desenvolvido com ❤️ para o meio ambiente
               </p>
             </div>
 
