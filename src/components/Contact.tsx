@@ -33,7 +33,7 @@ const Contact = () => {
     const subject = `Solicitação de Orçamento - ${formData.service}`;
     const body = `Nome: ${formData.firstName} ${formData.lastName}%0A%0AEmail: ${formData.email}%0A%0ATelefone: ${formData.phone}%0A%0AServiço: ${formData.service}%0A%0AMensagem: ${formData.message || 'Nenhuma mensagem adicional'}%0A%0A---%0AEnviado através do formulário do site Fragmentejá`;
     
-    const mailtoLink = `mailto:madaramartins1993@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${body}`;
     window.open(mailtoLink);
 
     toast({
