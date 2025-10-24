@@ -54,17 +54,59 @@ Enviado através do formulário do site Fragmentejá.`;
     
     const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Tentar abrir o cliente de email
-    try {
+    // Múltiplas tentativas para garantir que funcione
+    const openEmailClient = () => {
+      // Tentativa 1: Criar elemento <a> temporário
+      const tempLink = document.createElement('a');
+      tempLink.href = mailtoLink;
+      tempLink.target = '_blank';
+      tempLink.rel = 'noopener noreferrer';
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+    };
+
+    // Tentativa 2: window.location.href
+    const openWithLocation = () => {
       window.location.href = mailtoLink;
-    } catch (error) {
-      // Fallback: usar window.open
-      window.open(mailtoLink);
+    };
+
+    // Tentativa 3: window.open
+    const openWithWindow = () => {
+      window.open(mailtoLink, '_blank');
+    };
+
+    // Executar tentativas sequenciais
+    try {
+      openEmailClient();
+    } catch (error1) {
+      try {
+        openWithLocation();
+      } catch (error2) {
+        try {
+          openWithWindow();
+        } catch (error3) {
+          // Último recurso: mostrar link para copiar
+          navigator.clipboard.writeText(mailtoLink).then(() => {
+            toast({
+              title: "Link copiado",
+              description: "Cole o link no seu cliente de email: " + mailtoLink,
+              variant: "default",
+            });
+          }).catch(() => {
+            toast({
+              title: "Erro ao abrir email",
+              description: "Por favor, envie um email manual para: contato@fragmenteja.com.br",
+              variant: "destructive",
+            });
+          });
+        }
+      }
     }
 
     toast({
-      title: "Redirecionando para email",
-      description: "Abra seu cliente de email para enviar a mensagem.",
+      title: "Abrindo cliente de email",
+      description: "Seu cliente de email deve abrir automaticamente.",
     });
 
     // Limpar formulário após um delay
@@ -283,13 +325,61 @@ Enviado através do formulário do site Fragmentejá.`;
                 />
               </div>
 
-              <Button 
+              <Button
                 type="submit" 
                 size="lg" 
                 className="w-full h-12 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                 Enviar Solicitação
+              </Button>
+              
+              {/* Botão alternativo para copiar link do email */}
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="w-full mt-3 h-10 border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 font-medium transition-all duration-300"
+                onClick={() => {
+                  const serviceNames = {
+                    'descarte-documentos': 'Descarte de Documentos',
+                    'descarte-uniformes-epis': 'Descarte de Uniformes e EPIs',
+                    'descarte-equipamentos': 'Descarte de Equipamentos',
+                    'descarte-material-promocional': 'Descarte de Material Promocional',
+                    'descarte-crachas-cartoes': 'Descarte de Crachás e Cartões',
+                    'descarte-eletronicos': 'Descarte de Eletrônicos',
+                    'outros': 'Outros'
+                  };
+                  
+                  const serviceDisplayName = serviceNames[formData.service as keyof typeof serviceNames] || formData.service;
+                  const subject = `Solicitação de Orçamento - ${serviceDisplayName}`;
+                  const body = `Nome: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Telefone: ${formData.phone}
+Serviço: ${serviceDisplayName}
+Mensagem: ${formData.message || 'Nenhuma mensagem adicional'}
+
+---
+Enviado através do formulário do site Fragmentejá.`;
+                  
+                  const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  
+                  navigator.clipboard.writeText(mailtoLink).then(() => {
+                    toast({
+                      title: "Link copiado!",
+                      description: "Cole o link no seu cliente de email ou navegador.",
+                      variant: "default",
+                    });
+                  }).catch(() => {
+                    toast({
+                      title: "Erro ao copiar",
+                      description: "Por favor, envie um email manual para: contato@fragmenteja.com.br",
+                      variant: "destructive",
+                    });
+                  });
+                }}
+              >
+                📋 Copiar Link do Email
               </Button>
             </form>
 
