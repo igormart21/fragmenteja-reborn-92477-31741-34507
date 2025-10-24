@@ -249,9 +249,6 @@ Esta mensagem foi enviada através do formulário de contato do site Fragmentej�
                     <SelectItem value="descarte-material-promocional">Descarte de Material Promocional</SelectItem>
                     <SelectItem value="descarte-crachas-cartoes">Descarte de Crachás e Cartões</SelectItem>
                     <SelectItem value="descarte-eletronicos">Descarte de Eletrônicos</SelectItem>
-                    <SelectItem value="servicos-empresariais">Serviços Empresariais (Grandes Empresas)</SelectItem>
-                    <SelectItem value="consultoria-gestao-residuos">Consultoria em Gestão de Resíduos</SelectItem>
-                    <SelectItem value="transporte-coleta">Transporte e Coleta Especializada</SelectItem>
                     <SelectItem value="outros">Outros</SelectItem>
                   </SelectContent>
                 </Select>
