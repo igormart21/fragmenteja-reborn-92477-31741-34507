@@ -60,6 +60,34 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Contact form email configuration (EmailJS)
+
+The contact form can send emails via EmailJS (recommended) and falls back to opening the user's default email client (mailto) if EmailJS is not configured.
+
+1) Create a free account at `https://www.emailjs.com` and set up:
+- a Service (get the Service ID)
+- an Email Template (get the Template ID)
+- a Public Key (user key)
+
+2) Create a `.env.local` file in the project root and add:
+
+```
+VITE_EMAILJS_PUBLIC_KEY=YOUR_PUBLIC_KEY
+VITE_EMAILJS_SERVICE_ID=YOUR_SERVICE_ID
+VITE_EMAILJS_TEMPLATE_ID=YOUR_TEMPLATE_ID
+```
+
+3) In your EmailJS template, ensure these variables exist in the template body as needed:
+- `first_name`, `last_name`, `email`, `phone`, `service`, `subject`, `message`
+
+4) Restart the dev server:
+
+```
+npm run dev
+```
+
+If the variables are not provided, the form will automatically fall back to opening a pre-filled email using the user's mail client.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/56645fcd-d415-46e7-a105-e2ccda66312a) and click on Share -> Publish.

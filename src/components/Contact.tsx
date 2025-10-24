@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -16,7 +17,7 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -52,20 +53,61 @@ Mensagem: ${formData.message || 'Nenhuma mensagem adicional'}
 ---
 Enviado através do formulário do site Fragmentejá.`;
     
-    const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Método mais confiável: criar elemento <a> e clicar
-    const tempLink = document.createElement('a');
-    tempLink.href = mailtoLink;
-    tempLink.style.display = 'none';
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
+    // Prefer EmailJS (serverless) if configured; fallback to mailto
+    const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+    const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+    const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
 
-    toast({
-      title: "Abrindo cliente de email",
-      description: "Seu cliente de email deve abrir automaticamente.",
-    });
+    const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    const useEmailJs = Boolean(EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID);
+
+    if (useEmailJs) {
+      try {
+        emailjs.init(EMAILJS_PUBLIC_KEY!);
+        await emailjs.send(EMAILJS_SERVICE_ID!, EMAILJS_TEMPLATE_ID!, {
+          to_email: "contato@fragmenteja.com.br",
+          subject,
+          message: body,
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          service: serviceDisplayName,
+        });
+
+        toast({
+          title: "Mensagem enviada",
+          description: "Sua solicitação foi enviada com sucesso.",
+        });
+      } catch (err) {
+        // Fallback automático para mailto se EmailJS falhar
+        const tempLink = document.createElement('a');
+        tempLink.href = mailtoLink;
+        tempLink.style.display = 'none';
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+        toast({
+          title: "Abrindo cliente de email",
+          description: "Não foi possível enviar automaticamente. Abrindo seu email.",
+        });
+      }
+    } else {
+      // Mailto direto
+      const tempLink = document.createElement('a');
+      tempLink.href = mailtoLink;
+      tempLink.style.display = 'none';
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+
+      toast({
+        title: "Abrindo cliente de email",
+        description: "Seu cliente de email deve abrir automaticamente.",
+      });
+    }
 
     // Limpar formulário após um delay
     setTimeout(() => {
