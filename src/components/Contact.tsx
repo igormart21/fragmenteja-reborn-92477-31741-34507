@@ -29,19 +29,38 @@ const Contact = () => {
       return;
     }
 
+    // Criar email com os dados do formulário
+    const subject = `Solicitação de Orçamento - ${formData.service}`;
+    const body = `
+Nome: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Telefone: ${formData.phone}
+Serviço: ${formData.service}
+Mensagem: ${formData.message || 'Nenhuma mensagem adicional'}
+
+---
+Esta mensagem foi enviada através do formulário de contato do site Fragmentejá.
+    `;
+    
+    const mailtoLink = `mailto:contato@fragmenteja.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink);
+
     toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve. Obrigado!",
+      title: "Redirecionando para email",
+      description: "Abra seu cliente de email para enviar a mensagem.",
     });
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      service: "",
-      message: "",
-    });
+    // Limpar formulário após um delay
+    setTimeout(() => {
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+    }, 2000);
   };
 
   const contactInfo = [
@@ -224,10 +243,15 @@ const Contact = () => {
                     <SelectValue placeholder="Escolher serviço *" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="destruicao-sigilosos">Destruição de Documentos Sigilosos</SelectItem>
-                    <SelectItem value="destruicao-prescritos">Destruição de Documentos Prescritos</SelectItem>
-                    <SelectItem value="consultoria">Consultoria em Gestão de Documentos</SelectItem>
-                    <SelectItem value="armazenamento">Armazenamento Temporário</SelectItem>
+                    <SelectItem value="descarte-documentos">Descarte de Documentos</SelectItem>
+                    <SelectItem value="descarte-uniformes-epis">Descarte de Uniformes e EPIs</SelectItem>
+                    <SelectItem value="descarte-equipamentos">Descarte de Equipamentos</SelectItem>
+                    <SelectItem value="descarte-material-promocional">Descarte de Material Promocional</SelectItem>
+                    <SelectItem value="descarte-crachas-cartoes">Descarte de Crachás e Cartões</SelectItem>
+                    <SelectItem value="descarte-eletronicos">Descarte de Eletrônicos</SelectItem>
+                    <SelectItem value="servicos-empresariais">Serviços Empresariais (Grandes Empresas)</SelectItem>
+                    <SelectItem value="consultoria-gestao-residuos">Consultoria em Gestão de Resíduos</SelectItem>
+                    <SelectItem value="transporte-coleta">Transporte e Coleta Especializada</SelectItem>
                     <SelectItem value="outros">Outros</SelectItem>
                   </SelectContent>
                 </Select>
